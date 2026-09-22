@@ -92,8 +92,8 @@ export const Scene_Video = () => {
         </div>
 
         {/* Video Card with Royal Gold Frame on Desktop, Edge-to-Edge on Mobile */}
-        <div className="video-card-wrapper reveal-blur delay-4">
-          <div className="video-inner-container">
+        <div className="video-card-wrapper reveal-blur delay-4" style={{ touchAction: 'pan-y' }}>
+          <div className="video-inner-container" style={{ touchAction: 'pan-y' }}>
             <video
               ref={videoRef}
               src="/wedding-video.mp4"
@@ -103,14 +103,16 @@ export const Scene_Video = () => {
               className="full-video-element"
             />
 
-            {/* Video Overlays / Controls */}
+            {/* Video Overlays / Controls — pointer-events restored on button wrapper */}
             <div style={{
               position: 'absolute',
               bottom: '12px',
               right: '12px',
               display: 'flex',
               gap: '8px',
-              zIndex: 10
+              zIndex: 10,
+              pointerEvents: 'auto',
+              touchAction: 'manipulation'
             }}>
               {/* Mute / Unmute Button */}
               <button

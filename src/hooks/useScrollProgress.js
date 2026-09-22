@@ -49,6 +49,8 @@ export function useRevealObserver() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // Add visible when scrolling in, remove when scrolling out
+          // so animations re-trigger every time the user visits a section
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
           } else {
@@ -56,7 +58,7 @@ export function useRevealObserver() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
     );
 
     const observeAll = () => {

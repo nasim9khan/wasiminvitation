@@ -15,14 +15,21 @@ import { weddingData } from './data/wedding-data';
 export function App() {
   // Activate smooth scrolling across the entire site
   useEffect(() => {
+    // Detect touch/mobile device
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    // On mobile, use native scroll (no Lenis) — it's already smooth on iOS/Android
+    // On desktop, use Lenis for smooth wheel scroll only
+    if (isTouchDevice) return;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 0.8,
+      touchMultiplier: 0, // disabled — handled natively
     });
 
     let animationFrameId;
