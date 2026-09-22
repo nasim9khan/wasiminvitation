@@ -92,8 +92,8 @@ export const Scene_Video = () => {
         </div>
 
         {/* Video Card with Royal Gold Frame on Desktop, Edge-to-Edge on Mobile */}
-        <div className="video-card-wrapper reveal-blur delay-4" style={{ touchAction: 'pan-y' }}>
-          <div className="video-inner-container" style={{ touchAction: 'pan-y' }}>
+        <div className="video-card-wrapper reveal-blur delay-4">
+          <div className="video-inner-container">
             <video
               ref={videoRef}
               src="/wedding-video.mp4"
