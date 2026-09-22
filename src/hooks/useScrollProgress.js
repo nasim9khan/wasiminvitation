@@ -6,34 +6,41 @@ import { useState, useEffect, useRef, useCallback } from 'react';
  *
  * `start` - fraction of viewport where tracking starts (default 1 = bottom of viewport)
  * `end`   - fraction of viewport where tracking reaches 1.0 (default 0 = top of viewport)
+ *
+ * Uses requestAnimationFrame throttling so setState fires at most once per
+ * frame — prevents React re-render thrashing that causes scroll jumps on mobile.
  */
 export function useScrollProgress(options = {}) {
   const { start = 1.0, end = 0.3 } = options;
   const ref = useRef(null);
   const [progress, setProgress] = useState(0);
+  const rafId = useRef(null);
 
-  const handleScroll = useCallback(() => {
+  const compute = useCallback(() => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const vh = window.innerHeight;
-
-    // Element's top position relative to viewport
     const topRatio = rect.top / vh;
-
-    // Map from start..end range to 0..1
     const raw = (start - topRatio) / (start - end);
     setProgress(Math.max(0, Math.min(1, raw)));
   }, [start, end]);
 
+  const handleScroll = useCallback(() => {
+    // Cancel any pending frame so we don't queue multiple updates per scroll burst
+    if (rafId.current) cancelAnimationFrame(rafId.current);
+    rafId.current = requestAnimationFrame(compute);
+  }, [compute]);
+
   useEffect(() => {
-    handleScroll();
+    compute();
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
     return () => {
+      if (rafId.current) cancelAnimationFrame(rafId.current);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [handleScroll]);
+  }, [handleScroll, compute]);
 
   return [ref, progress];
 }

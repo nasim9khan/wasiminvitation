@@ -599,10 +599,7 @@ body {
 @media (max-width: 600px) {
   .scene {
     padding: 2rem 0.8rem;
-    /* GPU compositing to prevent repaint jitter */
-    will-change: transform;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    /* Do NOT add will-change here — too many GPU layers causes mobile jank */
   }
 
   /* Full bleed video layout on mobile screen — zero padding, edge-to-edge cover */

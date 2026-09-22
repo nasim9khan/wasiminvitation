@@ -175,10 +175,16 @@ export const RoseScatterCanvas = () => {
       }
     }
 
+    // Fewer particles on mobile to free GPU budget for smooth scrolling
+    const isMobile = window.innerWidth <= 600;
+    const glitterCount   = isMobile ? 25 : 55;
+    const sparkleCount   = isMobile ? 35 : 80;
+    const petalCount     = isMobile ? 6  : 14;
+
     // Instantiate ambient elements
-    const glitters = Array.from({ length: 55 }, () => new Glitter());
-    const whiteSparkles = Array.from({ length: 80 }, () => new WhiteSparkle());
-    const fallingPetals = Array.from({ length: 14 }, () => new FallingPetal(true));
+    const glitters      = Array.from({ length: glitterCount },  () => new Glitter());
+    const whiteSparkles = Array.from({ length: sparkleCount },  () => new WhiteSparkle());
+    const fallingPetals = Array.from({ length: petalCount },    () => new FallingPetal(true));
 
     let lastScrollY = window.scrollY;
 
