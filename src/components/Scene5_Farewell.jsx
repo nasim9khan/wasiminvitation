@@ -6,7 +6,7 @@ export const Scene5_Farewell = () => {
     <section className="scene" style={{
       background: 'radial-gradient(ellipse at 50% 50%, rgba(42, 6, 20, 0.25) 0%, rgba(5, 1, 3, 0.65) 75%)',
       zIndex: 4,
-      minHeight: '45dvh',
+      minHeight: '45svh',
       padding: '2.5rem 1.2rem 6rem'
     }}>
       <div style={{ position: 'relative', zIndex: 5, maxWidth: '94%', wordBreak: 'break-word', overflowWrap: 'anywhere' }}>

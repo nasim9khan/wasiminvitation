@@ -114,8 +114,8 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  height: 100dvh;
+  /* svh = stable viewport height — never changes when mobile toolbar appears/hides */
+  height: 100svh;
   background-image: url('/card6.jpg');
   background-size: cover;
   background-position: center;
@@ -142,7 +142,9 @@ body {
 /* ===== SCENE SECTIONS ===== */
 .scene {
   width: 100%;
-  min-height: 75dvh;
+  /* Use svh (stable viewport height) — does NOT resize when mobile browser toolbar toggles.
+     This is the #1 fix for the scroll bounce / auto-jump issue on mobile. */
+  min-height: 75svh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -154,12 +156,12 @@ body {
 }
 
 .scene--tall {
-  min-height: 100dvh;
+  min-height: 100svh;
   padding: 3rem 1.2rem;
 }
 
 .scene--medium {
-  min-height: 95dvh;
+  min-height: 95svh;
   padding: 3rem 1.2rem;
 }
 
@@ -169,7 +171,7 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100svh;
   pointer-events: none;
   z-index: 3;
 }

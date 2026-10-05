@@ -32,6 +32,15 @@ export function useScrollProgress(options = {}) {
   }, [compute]);
 
   useEffect(() => {
+    // On mobile, skip scroll-driven progress entirely.
+    // 5 event cards each firing setState every scroll tick causes React re-render
+    // cascades that shift layout mid-scroll, producing the "bounce" effect.
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+      setProgress(1); // Always fully lit on mobile
+      return;
+    }
+
     compute();
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
