@@ -19,12 +19,12 @@ export const Scene2_ArchCurtain = ({ event, index }) => {
       style={{
         zIndex: 4,
         background: `radial-gradient(ellipse at 50% 45%, 
-          rgba(${42 + lightIntensity * 25}, ${6 + lightIntensity * 8}, ${20 + lightIntensity * 12}, ${0.28 + lightIntensity * 0.2}) 0%, 
-          rgba(5, 1, 3, 0.65) 75%)`
+          rgba(${42 + lightIntensity * 25}, ${6 + lightIntensity * 8}, ${20 + lightIntensity * 12}, ${0.32 + lightIntensity * 0.2}) 0%, 
+          rgba(5, 1, 3, 0.73) 75%)`
       }}
     >
       {/* ═══ Card4 glitter background in this section ═══ */}
-      <div className="glitter-bg" style={{ opacity: 0.25 + lightIntensity * 0.1 }} />
+      <div className="glitter-bg" style={{ opacity: 0.18 + lightIntensity * 0.1 }} />
 
       {/* ═══ Arch frame (golden outline) ═══ */}
       <div style={{
