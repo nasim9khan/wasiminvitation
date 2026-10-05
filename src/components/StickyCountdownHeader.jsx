@@ -41,7 +41,7 @@ export const StickyCountdownHeader = () => {
         ) : (
           <div className="countdown-units">
             <div className="countdown-item">
-              <span className="countdown-value">{timeLeft.days}</span>
+              <span className="countdown-value">{String(timeLeft.days).padStart(2, '0')}</span>
               <span className="countdown-unit">Days</span>
             </div>
             <span className="countdown-colon">:</span>

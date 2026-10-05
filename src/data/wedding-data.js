@@ -57,7 +57,7 @@ export const weddingData = {
       arabicTitle: "رِحْلَةُ الْبَارَات",
       date: "Saturday, 24 October 2026",
       isoDate: "2026-10-24T18:00:00",
-      time: "06:00 PM IST",
+      time: "04:00 PM IST",
       venue: "Khan Manzil",
       location: "Inayatpur",
       googleMapsUrl: "https://maps.app.goo.gl/ba52W7RwZRojE3Wh7",
@@ -125,5 +125,17 @@ export const weddingData = {
       { name: "Mr. Ali Akhtar Khan", phone: "+918677000299", relation: "Groom's Father" },
       { name: "Mr. Nasim Akhtar Khan", phone: "+919521421841", relation: "Groom's Brother" }
     ]
-  }
+  },
+
+  familyMembers: [
+    { name: "Sahid Khan" },
+    { name: "Jamil Khan" },
+    { name: "Ali Akbar Khan" },
+    { name: "Nasir Khan" },
+    { name: "Rehan Khan" },
+    { name: "Ubaydullah Khan" },
+    { name: "Raiyan Khan" },
+
+  ]
 };
+

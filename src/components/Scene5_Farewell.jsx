@@ -52,6 +52,43 @@ export const Scene5_Farewell = () => {
           </p>
         </div>
 
+        {/* ═══ Family Members List ═══ */}
+        {weddingData.familyMembers && weddingData.familyMembers.length > 0 && (
+          <div className="reveal delay-5" style={{ marginTop: '1.2rem' }}>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '0.4rem 0.8rem',
+              maxWidth: '360px',
+              margin: '0 auto'
+            }}>
+              {weddingData.familyMembers.map((member, index) => (
+                <span
+                  key={index}
+                  className="font-heading"
+                  style={{
+                    fontSize: 'clamp(0.75rem, 2.5vw, 0.9rem)',
+                    color: '#E8C36A',
+                    letterSpacing: '1.5px',
+                    fontWeight: 500,
+                    textShadow: '0 0 10px rgba(212, 175, 55, 0.25)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.8rem'
+                  }}
+                >
+                  {member.name}
+                  {index < weddingData.familyMembers.length - 1 && (
+                    <span style={{ color: '#D4AF37', opacity: 0.6, fontSize: '0.6rem' }}>✦</span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="reveal delay-5">
           <div className="gold-divider" style={{ margin: '1.2rem auto 0.8rem' }} />
         </div>
