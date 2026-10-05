@@ -15,7 +15,7 @@ export const Scene4_Verse = () => {
 
   return (
     <section className="scene" style={{
-      background: 'radial-gradient(ellipse at 50% 50%, rgba(30, 4, 15, 0.3) 0%, rgba(5, 1, 3, 0.7) 75%)',
+      background: 'radial-gradient(ellipse at 50% 50%, rgba(30, 4, 15, 0.25) 0%, rgba(5, 1, 3, 0.65) 75%)',
       zIndex: 4,
       padding: '2.5rem 1.2rem 4rem'
     }}>

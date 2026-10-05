@@ -56,7 +56,7 @@ export const Scene_Video = () => {
 
   return (
     <section className="scene scene--video" style={{
-      background: 'radial-gradient(ellipse at 50% 50%, rgba(35, 5, 18, 0.4) 0%, rgba(5, 1, 3, 0.8) 80%)',
+      background: 'radial-gradient(ellipse at 50% 50%, rgba(35, 5, 18, 0.3) 0%, rgba(5, 1, 3, 0.65) 80%)',
       zIndex: 4
     }}>
       <div ref={containerRef} className="video-section-container">
