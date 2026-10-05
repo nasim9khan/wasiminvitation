@@ -75,11 +75,11 @@ export function App() {
         <Scene2_ArchCurtain key={event.id} event={event} index={index} />
       ))}
 
-      {/* ═══ Scene 4: RSVP & WhatsApp ═══ */}
-      <Scene4_Verse />
-
       {/* ═══ Scene Video: Moments of Celebration (plays when in viewport) ═══ */}
       <Scene_Video />
+
+      {/* ═══ Scene 4: RSVP & WhatsApp ═══ */}
+      <Scene4_Verse />
 
       {/* ═══ Scene 5: Farewell ═══ */}
       <Scene5_Farewell />
